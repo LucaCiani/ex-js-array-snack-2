@@ -44,3 +44,15 @@ const books = [
         tags: ["html", "advanced", "junior", "mid-senior"],
     },
 ];
+
+const longBooks = books.filter((book) => {
+    return book.pages > 300;
+});
+
+console.log(longBooks);
+
+const longBooksTitle = longBooks.map((book) => {
+    return book.title;
+});
+
+console.log(longBooksTitle);
