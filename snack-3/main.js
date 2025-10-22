@@ -44,3 +44,21 @@ const books = [
         tags: ["html", "advanced", "junior", "mid-senior"],
     },
 ];
+
+const authors = books.map((book) => {
+    return book.author;
+});
+
+const areAuthorsAdults = authors.every((author) => {
+    return author.age >= 18;
+});
+
+authors.sort((a, b) => {
+    if (areAuthorsAdults) {
+        return a.age - b.age;
+    } else {
+        return b.age - a.age;
+    }
+});
+
+console.log(authors);
