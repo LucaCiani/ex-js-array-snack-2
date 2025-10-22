@@ -44,3 +44,13 @@ const books = [
         tags: ["html", "advanced", "junior", "mid-senior"],
     },
 ];
+
+const ages = books.map((book) => {
+    return book.author.age;
+});
+
+const agesSum = ages.reduce((acc, age) => {
+    return acc + age;
+}, 0);
+
+console.log(agesSum / ages.length);
