@@ -44,3 +44,24 @@ const books = [
         tags: ["html", "advanced", "junior", "mid-senior"],
     },
 ];
+
+const availableBooks = books.filter((book) => {
+    return book.available;
+});
+
+const discountedBooks = availableBooks.map((book) => {
+    const priceNum = parseFloat(book.price.replace("€", ""));
+    const discountedPrice = +(priceNum * 0.8).toFixed(2);
+    return {
+        ...book,
+        price: `${discountedPrice}€`,
+    };
+});
+
+const fullPricedBook = discountedBooks.find((book) => {
+    const priceNum = parseFloat(book.price.replace("€", ""));
+    return priceNum % 1 === 0;
+});
+
+console.log(discountedBooks);
+console.log(fullPricedBook);
